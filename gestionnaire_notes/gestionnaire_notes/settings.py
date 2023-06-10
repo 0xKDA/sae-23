@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'gestionnaire_notes.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sae_23',
+        'USER': 'scribe',
+        'PASSWORD': 'N0t1k3ScR1b3',
+        'HOST': 'localhost',  # Par exemple, 'localhost' ou l'adresse IP de votre serveur MySQL
+        'PORT': '3306',  # Le port par défaut pour MySQL est généralement 3306
     }
 }
 
