@@ -12,4 +12,4 @@ pip install -r dependencies.txt
 ```
 <br>
 
->&rarr; &nbsp; Ceci installera les versions spécifiques des dépendances utilisées dans le projet, à l'aide du fichier 'dependencies.txt'.
+>&rarr; &nbsp; Ceci installera les versions spécifiques des dépendances utilisées dans le projet.
