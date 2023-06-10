@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'general.apps.GeneralConfig',
-    'comptes.apps.ComptesConfig',
+    'general.apps.GeneralConfig',   # Ajout de l'application 'general' dans la liste des applications
+    'comptes.apps.ComptesConfig',   # Ajout de l'application 'comptes' dans la liste des applications
 ]
 
 MIDDLEWARE = [
@@ -76,9 +76,13 @@ WSGI_APPLICATION = 'gestionnaire_notes.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default': {   # Utilisation de MySQL comme SGBD par défaut
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sae_23',   # Nom de la base de données MySQL
+        'USER': 'scribe',   # L'utilisateur 'scribe', de la base de données, possède uniquement les permissions CRUD
+        'PASSWORD': 'N0t1k3ScR1b3',   # Mot de passe de l'utilisateur 'scribe'
+        'HOST': 'localhost',   # L'utilisateur 'scribe' est exécuté en localhost
+        'PORT': '3306',   # Le port utilisé par défaut, sous Windows, par MySQL
     }
 }
 
