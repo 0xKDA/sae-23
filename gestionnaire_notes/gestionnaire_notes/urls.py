@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('general.urls')),
+    path('', include('general.urls')),   # Par question de praticité, l'URL par défaut n'aura pas d'extension
 ]
