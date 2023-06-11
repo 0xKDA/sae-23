@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'gestionnaire_notes.wsgi.application'
 DATABASES = {
     'default': {   # Utilisation de MySQL comme SGBD par défaut
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sae203',   # Nom de la base de données MySQL
-        'USER': 'root',   # L'utilisateur 'scribe', de la base de données, possède uniquement les permissions CRUD
-        'PASSWORD': 'Mili482b',   # Mot de passe de l'utilisateur 'scribe'
+        'NAME': 'sae_23',   # Nom de la base de données MySQL
+        'USER': 'scribe',   # L'utilisateur 'scribe', de la base de données, possède uniquement les permissions CRUD
+        'PASSWORD': 'N0t1k3ScR1b3',   # Mot de passe de l'utilisateur 'scribe'
         'HOST': 'localhost',   # L'utilisateur 'scribe' est exécuté en localhost
         'PORT': '3306',   # Le port utilisé par défaut, sous Windows, par MySQL
     }
@@ -143,4 +143,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'connexion'   # Définit la page 'connexion' comme URL principale du système d'authentification
 LOGIN_REDIRECT_URL = 'accueil'   # Redirige vers la page 'accueil' une fois la connexion réussie
+
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True   # Permet de déconnecter les utilisateurs à la fermeture du navigateur
+
+CSRF_COOKIE_SECURE = False   # Force l'envoi des cookies CSRF via HTTPS. Laisser en False pour le moment !
+SESSION_COOKIE_SECURE = False   # Force l'envoi du cookie de session via HTTPS. Laisser en False pour le moment !
+SECURE_SSL_REDIRECT = False   # Force la redirection des requêtes HTTP via HTTPS. Laisser en False pour le moment !
