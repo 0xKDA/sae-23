@@ -14,7 +14,13 @@
     <h1>Votre page de profil</h1>
     <p>Nom d'utilisateur: {{ user.username }}</p>
     <p>@Email: {{ user.email }}</p>
-    <p>Dernière connexion : {{ user.last_login }}</p>
+
+    {% load i18n francais %}   <!-- Charge le tag 'francais' et les méthodes qu'il contient-->
+    {% language 'fr' %}   <!-- Traduis le contenu du bloc (ici le mois) en français -->
+        <!-- Change le format de la date et utilise la méthode du tag pour capitaliser la première lettre du mois -->
+        <p>Dernière connexion : {{ user.last_login|date:"j F Y, H\hi"|nom_mois_majuscule }}</p>
+    {% endlanguage %}
+
     <a href="{% url 'accueil' %}"><button>Retour à l'accueil</button></a>
     <a href="{% url 'deconnexion' %}"><button>Se déconnecter</button></a>
 
