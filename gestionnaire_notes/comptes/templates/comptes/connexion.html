@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+
+</head>
+
+<body>
+
+    <h2>Connexion</h2>
+
+    <form method="post">
+
+        {% csrf_token %}
+        {{ formulaire.as_p }}
+        <button type="submit">Se connecter</button>
+
+        <a href="{% url 'accueil' %}"><button>Retour à l'accueil</button></a>
+
+    </form>
+
+</body>
+
+</html>
