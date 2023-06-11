@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Accueil</title>
+
+</head>
+
+<body>
+
+    <h2>Bienvenue sur la page d'accueil !</h2>
+    <a href="{% url 'connexion' %}"><button>Connexion</button></a>
+
+    {% if not user.is_authenticated %}
+        <a href="{% url 'inscription' %}"><button>Inscription</button></a>
+    {% endif %}
+
+    <a href="{% url 'profil' %}"><button>Profil</button></a>
+    <a href="{% url 'deconnexion' %}"><button>Se déconnecter</button></a>
+
+</body>
+
+</html>

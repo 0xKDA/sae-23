@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Etudiants(models.Model):
+
     id_etudiant = models.AutoField(primary_key=True)   # Définit la clé primaire utilisée par Django
     nom = models.CharField(max_length=50)
     prenom = models.CharField(max_length=50)
@@ -10,11 +11,13 @@ class Etudiants(models.Model):
     email = models.CharField(max_length=255)
 
     class Meta:
+
         managed = False   # Interdit à Django d'altérer la structure de la table
         db_table = 'etudiants'   # Associe le modèle à la table 'etudiants' de la base de données
 
 
 class Examens(models.Model):
+
     id_examen = models.AutoField(primary_key=True)   # Définit la clé primaire utilisée par Django
     titre = models.CharField(max_length=50)
     date = models.DateField()
@@ -27,11 +30,13 @@ class Examens(models.Model):
     )
 
     class Meta:
+
         managed = False   # Interdit à Django d'altérer la structure de la table
         db_table = 'examens'   # Associe le modèle à la table 'examens' de la base de données
 
 
 class Notes(models.Model):
+
     id_note = models.AutoField(primary_key=True)   # Définit la clé primaire utilisée par Django
     id_etudiant = models.ForeignKey(   # Clé étrangère
         Etudiants,   # Pointe vers le modèle 'Etudiants' associé à la table 'etudiants'
@@ -49,6 +54,7 @@ class Notes(models.Model):
     appreciation = models.TextField(blank=True, null=True)
 
     class Meta:
+
         managed = False   # Interdit à Django d'altérer la structure de la table
         db_table = 'notes'   # Associe le modèle à la table 'notes' de la base de données
 
@@ -57,38 +63,45 @@ class Notes(models.Model):
 
 
 class Ue(models.Model):
+
     code_ue = models.CharField(primary_key=True, max_length=10)   # Définit la clé primaire utilisée par Django
     nom = models.CharField(max_length=50)
     semestre = models.IntegerField()
     credits_ects = models.IntegerField()
 
     class Meta:
+
         managed = False   # Interdit à Django d'altérer la structure de la table
         db_table = 'ue'   # Associe le modèle à la table 'ue' de la base de données
 
 
 class Ressources(models.Model):
+
     code_ressource = models.CharField(primary_key=True, max_length=10)   # Définit la clé primaire utilisée par Django
     nom = models.CharField(max_length=50)
     descriptif = models.TextField(blank=True, null=True)
     coefficient = models.IntegerField()
 
     class Meta:
+
         managed = False   # Interdit à Django d'altérer la structure de la table
         db_table = 'ressources'   # Associe le modèle à la table 'ressources' de la base de données
 
 
 class Enseignants(models.Model):
+
     id_enseignant = models.AutoField(primary_key=True)   # Définit la clé primaire utilisée par Django
     nom = models.CharField(max_length=50)
     prenom = models.CharField(max_length=50)
 
     class Meta:
+
         managed = False   # Interdit à Django d'altérer la structure de la table
         db_table = 'enseignants'   # Associe le modèle à la table 'enseignants' de la base de données
 
 
 class Curriculum(models.Model):
+
     id_curriculum = models.AutoField(primary_key=True)   # Définit la clé primaire utilisée par Django
     code_ressource = models.ForeignKey(   # Clé étrangère
         Ressources,   # Pointe vers le modèle 'Ressources' associé à la table 'ressources'
@@ -104,6 +117,7 @@ class Curriculum(models.Model):
     )
 
     class Meta:
+
         managed = False   # Interdit à Django d'altérer la structure de la table
         db_table = 'curriculum'   # Associe le modèle à la table 'curriculum' de la base de données
 
@@ -112,6 +126,7 @@ class Curriculum(models.Model):
 
 
 class Enseignements(models.Model):
+
     id_enseignement = models.AutoField(primary_key=True)   # Définit la clé primaire utilisée par Django
     id_enseignant = models.ForeignKey(   # Clé étrangère
         Enseignants,   # Pointe vers le modèle 'Enseignants' associé à la table 'enseignants'
@@ -127,6 +142,7 @@ class Enseignements(models.Model):
     )
 
     class Meta:
+
         managed = False   # Interdit à Django d'altérer la structure de la table
         db_table = 'enseignements'   # Associe le modèle à la table 'enseignements' de la base de données
 

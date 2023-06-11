@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Profil</title>
+
+</head>
+
+<body>
+
+    <h1>Votre page de profil</h1>
+    <p>Nom d'utilisateur: {{ user.username }}</p>
+    <p>@Email: {{ user.email }}</p>
+    <p>Dernière connexion : {{ user.last_login }}</p>
+    <a href="{% url 'accueil' %}"><button>Retour à l'accueil</button></a>
+    <a href="{% url 'deconnexion' %}"><button>Se déconnecter</button></a>
+
+</body>
+
+</html>

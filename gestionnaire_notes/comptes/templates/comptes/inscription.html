@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+
+</head>
+
+<body>
+
+    <h2>Inscription</h2>
+
+    <form method="post">
+
+        {% csrf_token %}
+        {{ formulaire.as_p }}
+        <button type="submit">S'inscrire</button>
+
+        <a href="{% url 'accueil' %}"><button>Retour à l'accueil</button></a>
+
+    </form>
+
+</body>
+
+</html>

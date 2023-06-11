@@ -92,16 +92,29 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        # 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',   # Version native
+        'NAME': 'comptes.validators.ValidateurSimilitudePersonnalise',   # Version surchargée
+        'OPTIONS': {
+            'max_similarity': 0.5,   # Réduit le seuil de similarité natif (0.7 soit 70%) pour plus de sécurité
+        }
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        # 'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',   # Version native
+        'NAME': 'comptes.validators.ValidateurLongueurMinimalePersonnalise',   # Version surchargée
+        'OPTIONS': {
+            'min_length': 10,   # Longueur minimum du mot de passe fixée à 10 caractères
+        }
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        # 'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',   # Version native
+        'NAME': 'comptes.validators.ValidateurBanalitePersonnalise',   # Version surchargée
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        # 'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',   # Version native
+        'NAME': 'comptes.validators.ValidateurNumeriquePersonnalise',   # Version surchargée
+    },
+    {
+        'NAME': 'comptes.validators.VerificateurMotDePasse',   # Validateur personnalisé
     },
 ]
 
@@ -127,3 +140,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'connexion'   # Définit la page 'connexion' comme URL principale du système d'authentification
+LOGIN_REDIRECT_URL = 'accueil'   # Redirige vers la page 'accueil' une fois la connexion réussie
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True   # Permet de déconnecter les utilisateurs à la fermeture du navigateur
+
+CSRF_COOKIE_SECURE = False   # Force l'envoi des cookies CSRF via HTTPS. Laisser en False pour le moment !
+SESSION_COOKIE_SECURE = False   # Force l'envoi du cookie de session via HTTPS. Laisser en False pour le moment !
+SECURE_SSL_REDIRECT = False   # Force la redirection des requêtes HTTP via HTTPS. Laisser en False pour le moment !
