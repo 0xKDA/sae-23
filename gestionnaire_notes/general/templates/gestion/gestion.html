@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Gestion</title>
+
+    <style>
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .EspaceHyperlien {
+            margin-top: 1em;
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="BlocCentral">
+
+        <button id="BoutonGestionRessources" onclick="RedirectionURL('{% url 'gestion_ressources' %}')">Gestion Ressources</button>
+        <button id="BoutonGestionUE" onclick="RedirectionURL('{% url 'gestion_ue' %}')">Gestion UE</button>
+        <br>
+        <button id="BoutonAjout" onclick="RedirectionURL('{% url 'ajout' %}')">Menu Ajout</button>
+        <br>
+        <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Suppression Ressource</title>
+
+    <style>
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .EspaceHyperlien {
+            margin-top: 1em;
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="BlocCentral">
+
+        <h2>Voulez-vous vraiment supprimer {{ ressource.code_ressource }} - {{ ressource.nom }} ?</h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+            <button type="submit">Confirmer</button>
+
+        </form>
+
+        <br>
+        <button id="BoutonGestionRessources" onclick="RedirectionURL('{% url 'gestion_ressources' %}')">Gestion Ressources</button>
+        <button id="BoutonAjoutRessource" onclick="RedirectionURL('{% url 'ajout_ressource' %}')">Ajout Ressource</button>
+        <br>
+        <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
+
+    </div>
+
+</body>
+
+</html>

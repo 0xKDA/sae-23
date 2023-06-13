@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Gestion UE</title>
+
+    <style>
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .AlignementGauche {
+            text-align: left;
+            width: fit-content;
+        }
+
+        .EspaceUE {
+            margin-bottom: 1em;
+        }
+
+        .EspaceHyperlien {
+            margin-top: 1em;
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="BlocCentral">
+
+        <div class="AlignementGauche">
+
+            {% for u_e in ue %}
+
+                <div class="EspaceUE">
+
+                    &bull; <span>{{ u_e.code_ue }} - {{ u_e.nom }} : " {{ u_e.credits_ects }} crédits ECTS"</span>
+
+                    &bull; <button id="BoutonModifierUE" onclick="RedirectionURL('{% url 'modification_ue' u_e.code_ue %}')">Modifier</button>
+                    <button id="BoutonSupprimerUE" onclick="RedirectionURL('{% url 'suppression_ue' u_e.code_ue %}')">Supprimer</button>
+
+                </div>
+
+            {% empty %}
+
+                <h2> Vous n'avez ajouté aucune UE ! </h2>
+
+            {% endfor %}
+
+        </div>
+
+        <button id="BoutonAjoutUE" onclick="RedirectionURL('{% url 'ajout_ue' %}')">Ajout UE</button>
+        <br>
+        <button id="BoutonGestion" onclick="RedirectionURL('{% url 'gestion' %}')">Menu Gestion</button>
+        <br>
+        <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
+
+    </div>
+
+</body>
+
+</html>
