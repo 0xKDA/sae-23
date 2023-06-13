@@ -11,14 +11,22 @@
 <body>
 
     <h2>Bienvenue sur la page d'accueil !</h2>
-    <a href="{% url 'connexion' %}"><button>Connexion</button></a>
 
+    <!-- Affiche les boutons si l'utilisateur n'est pas authentifié -->
     {% if not user.is_authenticated %}
+        <a href="{% url 'connexion' %}"><button>Connexion</button></a>
         <a href="{% url 'inscription' %}"><button>Inscription</button></a>
-    {% endif %}
 
-    <a href="{% url 'profil' %}"><button>Profil</button></a>
-    <a href="{% url 'deconnexion' %}"><button>Se déconnecter</button></a>
+    {% elif user.is_authenticated %}
+
+        <!-- Affiche le bouton si l'utilisateur n'est PAS un superuser -->
+        {% if not user.is_superuser %}
+        <a href="{% url 'profil' %}"><button>Profil</button></a>
+        {% endif %}
+
+        <!-- Affiche le bouton si l'utilisateur est authentifié -->
+        <a href="{% url 'deconnexion' %}"><button>Se déconnecter</button></a>
+    {% endif %}
 
 </body>
 
