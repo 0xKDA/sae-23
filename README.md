@@ -18,9 +18,9 @@ pip install -r dependencies.txt
 
 
 1. Créer un **superuser** s'il n'en existe pas déjà un :  
-
-   `python manage.py createsuperuser`
-   
+   ```
+   python manage.py createsuperuser
+   ```
    Sinon, voici les accès du superuser par défaut :
    
    Username | Password
@@ -34,17 +34,17 @@ pip install -r dependencies.txt
 3. Vérifier que l'utilisateur de connexion à MySQL a les privilèges suffisants :  
 
    * Permissions nécessaires pour le CRUD :  
-    
-     ``GRANT SELECT, INSERT, UPDATE, DELETE ON `sae_23`.* TO `scribe`@`localhost``  
-     
+     ```sql
+     GRANT SELECT, INSERT, UPDATE, DELETE ON sae_23.* TO `scribe`@`localhost`  
+     ```
    * Permissions nécessaires pour les migrations :  
-   
-     ``GRANT CREATE, REFERENCES, INDEX, ALTER ON `sae_23`.* TO `scribe`@`localhost``  
-     
+     ```sql
+     GRANT CREATE, REFERENCES, INDEX, ALTER ON sae_23.* TO `scribe`@`localhost`  
+     ```
    * Recharge les tables de privilèges :  
-   
-     ``FLUSH PRIVILEGES;``
-
+     ```sql
+     `FLUSH PRIVILEGES;`
+     ```
 
    <u>Voici les accès par défaut de l'utilisateur 'scribe'@'localhost' :</u>
    Username | Password
@@ -53,6 +53,7 @@ pip install -r dependencies.txt
 
 
 4. Effectuer les migrations pour appliquer les changements à la base de données :  
-   
-   `python manage.py makemigrations`  
-   `python manage.py migrate`
+   ```
+   python manage.py makemigrations  
+   python manage.py migrate
+   ```
