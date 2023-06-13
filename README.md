@@ -33,8 +33,17 @@ pip install -r dependencies.txt
 
 3. Vérifier que l'utilisateur de connexion à MySQL a les privilèges suffisants :  
 
-    ``GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, REFERENCES, INDEX, ALTER ON `sae_23`.* TO `scribe`@`localhost``  
-    ``FLUSH PRIVILEGES;``
+   * Permissions nécessaires pour le CRUD :  
+    
+     ``GRANT SELECT, INSERT, UPDATE, DELETE ON `sae_23`.* TO `scribe`@`localhost``  
+     
+   * Permissions nécessaires pour les migrations :  
+   
+     ``GRANT CREATE, REFERENCES, INDEX, ALTER ON `sae_23`.* TO `scribe`@`localhost``  
+     
+   * Recharge les tables de privilèges :  
+   
+     ``FLUSH PRIVILEGES;``
 
 
    <u>Voici les accès par défaut de l'utilisateur 'scribe'@'localhost' :</u>
