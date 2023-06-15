@@ -4,56 +4,44 @@
 
 <head>
 
-    <meta charset="UTF-8">
     <title>Accueil</title>
-
-    <style>
-
-        .BlocCentral {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-    </style>
-
-    <script>
-
-        function RedirectionURL(url) {
-            window.location.href = url;
-        }
-
-    </script>
+    <link rel="stylesheet" href="css.css">
 
 </head>
 
 <body>
+    <div class="page">
+        <div class="all">
+            <nav>
 
-    <div class="BlocCentral">
-
-        <h2>Bienvenue sur la page d'accueil !</h2>
-
-        <!-- Affiche les boutons si l'utilisateur n'est pas authentifié -->
-        {% if not user.is_authenticated %}
-            <button id="BoutonConnexion" onclick="RedirectionURL('{% url 'connexion' %}')">Connexion</button>
-            <button id="BoutonInscription" onclick="RedirectionURL('{% url 'inscription' %}')">Inscription</button>
-
-        {% elif user.is_authenticated %}
-
-            <!-- Affiche le bouton si l'utilisateur n'est PAS un superuser -->
-            {% if not user.is_superuser %}
-            <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
-            {% endif %}
-
-            <!-- Affiche le bouton si l'utilisateur est authentifié -->
-            <button id="BoutonDeconnexion" onclick="RedirectionURL('{% url 'deconnexion' %}')">Déconnexion</button>
-
-        {% endif %}
-
+                <a href="{% url 'connexion' %}"><button>Connexion</button></a>
+            
+            {% if not user.is_authenticated %}
+                    <a href="{% url 'inscription' %}"><button>Inscription</button></a>
+                {% endif %}
+        
+                <a href="documentation.html">
+                    <button>DOCUMENTATION</button></a>
+                <a href="about_us.html">
+                    <button>ABOUT US</button></a>
+                    <a href="{% url 'profil' %}"><button>Profil</button></a>
+                    <a href="{% url 'deconnexion' %}"><button>Se déconnecter</button></a>
+            </nav>
+            <div class="login">
+                <a href="{%url 'profil' %}"><img src="aahh-removebg-preview.png"/></a></a>
+            </div>
+        </div>
+        <div id="wrap">
+            <article class="article">
+                <h1>Lorem Elsass ipsum ac Morbi Gal !  schnaps leverwurscht Wurschtsalad elementum kuglopf bissame tristique consectetur tellus commodo non Verdammi gravida mänele rhoncus rossbolla Spätzle suspendisse salu Hans dui und amet geïz leo kartoffelsalad Pellentesque amet so id schneck sed placerat elit gal Gal. météor morbi wie dolor tchao bissame Salut bisamme hopla id, baeckeoffe turpis nullam dignissim vulputate wurscht barapli messti de Bischheim quam, risus, munster ornare libero. sit Kabinetpapier turpis, senectus DNA, hop aliquam schpeck hopla Mauris sit ornare s'guelt Richard Schirmeck lacus non Salu bissame sagittis Oberschaeffolsheim amet, Chulia Roberstau eget Chulien picon bière Strasbourg gewurztraminer flammekueche porta hopla semper réchime Heineken kougelhopf leo nüdle mollis Oberschaeffolsheim Coopé de Truchtersheim Miss Dahlias condimentum Racing. libero, ante yeuh. rucksack eleifend varius Christkindelsmärik geht's mamsell Yo dû. vielmols, hopla habitant in, Huguette quam. ch'ai blottkopf, adipiscing tellus hoplageiss lotto-owe ftomi! jetz gehts los Pfourtz ! sit merci vielmols purus ac chambon Carola auctor, et knepfle knack bredele pellentesque libero, sed ullamcorper</h1> 
+            </article>
+            <article class="article">
+                <h1>Lorem Elsass ipsum ac Morbi Gal !  schnaps leverwurscht Wurschtsalad elementum kuglopf bissame tristique consectetur tellus commodo non Verdammi gravida mänele rhoncus rossbolla Spätzle suspendisse salu Hans dui und amet geïz leo kartoffelsalad Pellentesque amet so id schneck sed placerat elit gal Gal. météor morbi wie dolor tchao bissame Salut bisamme hopla id, baeckeoffe turpis nullam dignissim vulputate wurscht barapli messti de Bischheim quam, risus, munster ornare libero. sit Kabinetpapier turpis, senectus DNA, hop aliquam schpeck hopla Mauris sit ornare s'guelt Richard Schirmeck lacus non Salu bissame sagittis Oberschaeffolsheim amet, Chulia Roberstau eget Chulien picon bière Strasbourg gewurztraminer flammekueche porta hopla semper réchime Heineken kougelhopf leo nüdle mollis Oberschaeffolsheim Coopé de Truchtersheim Miss Dahlias condimentum Racing. libero, ante yeuh. rucksack eleifend varius Christkindelsmärik geht's mamsell Yo dû. vielmols, hopla habitant in, Huguette quam. ch'ai blottkopf, adipiscing tellus hoplageiss lotto-owe ftomi! jetz gehts los Pfourtz ! sit merci vielmols purus ac chambon Carola auctor, et knepfle knack bredele pellentesque libero, sed ullamcorper</h1> 
+            </article>
+        </div>           
+        
     </div>
-
+ 
 </body>
 
 </html>
