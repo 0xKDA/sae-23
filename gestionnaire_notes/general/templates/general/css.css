@@ -1,0 +1,163 @@
+/* CSS */
+body {
+    margin: 0;
+    padding: 0;
+    background-color:#14213d;
+
+  }
+  
+  .all {
+    display: flex;
+    height: 50px;
+    border-bottom-style:solid;
+    padding-bottom: 8%;
+    border-width: 10px;
+    border-color:#e07a5f ;
+
+  }
+  
+  nav {
+    margin-top: 2%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    margin-bottom: 5%;
+  }
+  
+  .login {
+    margin-top: 2%;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+  }
+  
+  button {
+    flex: 1;
+    padding: 10px 20px;
+    background-color: #e5e5e5;
+    color: #000000;
+    font-size: 16px;
+    border-radius: 5px;
+    border:none;
+    cursor: pointer;
+    transition: font-size 0.3s;
+    margin: 10px;
+    
+  }
+
+  button:hover {
+    font-size: 18px;
+    
+  }
+
+  
+  .login a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+.login img {
+    height: 80px;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: height 0.3s;
+
+}
+
+.login img:hover{
+
+    height: 100px;
+}
+
+article{
+    margin-top: 10%;
+    text-align: center;
+}
+
+.page{
+    padding-right: 15%;
+    padding-left: 15%;
+
+}
+
+#wrap {
+  position: relative;
+}
+
+.article {
+  max-height: 50px;
+  overflow: hidden;
+  transition: max-height 0.8s;
+  cursor: pointer;
+}
+
+.article:hover {
+  max-height: 250px;
+}
+
+.article h1 {
+  margin: 0;
+  padding: 10px;
+  background-color: #e5e5e5 ;
+  color: #000000;
+  font-size: 18px;
+}
+
+.information{
+  margin-top: 0;
+  text-align: left;
+  color: #124768;
+  margin-left: 2%
+
+}
+aside{
+  left;
+  background-color:#bde0fe ;
+  margin-right: 75%;
+  margin-top: 0;
+  padding-bottom:50%;
+}
+
+.connexion{
+  color: white;
+  border-style:solid;
+  border-radius: 15px;
+  border-color: white;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-top: 10%;
+  padding-top: 2%;
+  background-color:#14213d;
+  padding-bottom: 5%;
+  text-align: center;
+  
+}
+
+.BlocCentral {
+  display: flex;
+  flex-wrap: wrap;
+  border: solid;
+  border-radius: 15px;
+  border-color: white;
+  margin-top: 15%;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 1%;
+}
+
+.BlocCentral button {
+  flex-basis: 40%;
+}
+
+
+.docH1{
+  color: white;
+}
