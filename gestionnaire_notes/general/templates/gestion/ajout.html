@@ -1,32 +1,12 @@
 <!DOCTYPE html>
 
 <html lang="fr">
+<link rel="stylesheet" href="css.css">
 
 <head>
 
     <meta charset="UTF-8">
     <title>Ajout</title>
-
-    <style>
-
-        .BlocCentral {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        form {
-            text-align: center;
-        }
-
-        .EspaceHyperlien {
-            margin-top: 1em;
-        }
-
-    </style>
-
     <script>
 
         function RedirectionURL(url) {
@@ -38,7 +18,6 @@
 </head>
 
 <body>
-
     <div class="BlocCentral">
 
         <button id="BoutonAjoutRessource" onclick="RedirectionURL('{% url 'ajout_ressource' %}')">Ajout Ressource</button>
@@ -49,7 +28,6 @@
         <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
 
     </div>
-
 </body>
 
 </html>
