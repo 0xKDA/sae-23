@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Notes Etudiant</title>
+
+    <style>
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .EspaceHyperlien {
+            margin-top: 1em;
+        }
+
+        @media print {
+            .NePasImprimer {
+                display: none;
+            }
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="BlocCentral">
+
+        {% if etudiant %}
+
+        <h2><u>Relevé de notes de {{ etudiant.nom }} {{ etudiant.prenom }} :</u></h2>
+
+        {% for u in ue %}
+
+        <h2><u>Semestre {{ u.semestre }}</u></h2>
+        <h3>{{ u.code_ue }} - {{ u.nom }} : {{ u.credits_ects }} crédits ECTS</h3>
+
+            {% for c in u.curriculum.all %}
+
+                <h4>Ressource {{ c.code_ressource.code_ressource }} - {{ c.code_ressource.nom }} : Coefficient {{ c.code_ressource.coefficient }} dans {{ u.code_ue }}</h4>
+
+                {% for e in c.code_ressource.examens.all %}
+
+                    {% for n in e.notes.all %}
+
+                        {% if n.id_etudiant.id == etudiant.id %}
+
+                            <p>Note de {{ n.note|default:"Non disponible" }}/20 à l'examen {{ e.titre }} du {{ e.date }}, coefficient {{ e.coefficient }} dans la ressource {{ c.code_ressource.code_ressource }}</p>
+                            <p><u>Appreciation :</u> {{ n.appreciation|default:"Non disponible" }}</p>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                {% endfor %}
+
+            {% endfor %}
+
+        {% endfor %}
+
+        {% endif %}
+
+        <br>
+        <button id="Exporter" class="NePasImprimer" onclick="window.print()">Exporter/Imprimer</button>
+        <br>
+        <button id="BoutonAccueil" class="NePasImprimer" onclick="RedirectionURL('{% url 'accueil' %}')">Accueil</button>
+        <br>
+        <button id="BoutonProfil" class="NePasImprimer" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
+        <br>
+        <button id="BoutonDeconnexion" class="NePasImprimer" onclick="RedirectionURL('{% url 'deconnexion' %}')">Déconnexion</button>
+
+    </div>
+
+</body>
+
+</html>

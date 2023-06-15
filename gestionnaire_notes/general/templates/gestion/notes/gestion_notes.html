@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Gestion Ressources</title>
+
+    <style>
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .AlignementGauche {
+            text-align: left;
+            width: fit-content;
+        }
+
+        .EspaceNotes {
+            margin-bottom: 1em;
+        }
+
+        .EspaceHyperlien {
+            margin-top: 1em;
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="BlocCentral">
+
+        <div class="AlignementGauche">
+
+            {% for note in notes %}
+
+                <div class="EspaceNotes">
+
+                    &bull; <span>{{ note.id_etudiant.nom }} {{ note.id_etudiant.prenom }} a obtenu la note {{ note.note }} à l'examen {{ note.id_examen.titre }} de la ressource {{ note.id_examen.code_ressource.code_ressource }} de l'UE {{ note.id_examen.code_ressource.curriculum_related.code_ue.code_ue }} pour le semestre {{ note.id_examen.code_ressource.curriculum_related.code_ue.semestre }}</span>
+
+                    &bull; <button id="BoutonModifierNote" onclick="RedirectionURL('{% url 'modification_note' note.id_note %}')">Modifier</button>
+                    <button id="BoutonSupprimerNote" onclick="RedirectionURL('{% url 'suppression_note' note.id_note %}')">Supprimer</button>
+
+                </div>
+
+            {% empty %}
+
+                <h2> Vous n'avez ajouté aucune note ! </h2>
+
+            {% endfor %}
+
+        </div>
+
+        <button id="BoutonAjoutNote" onclick="RedirectionURL('{% url 'ajout_note' %}')">Ajout Note</button>
+        <br>
+        <button id="BoutonGestion" onclick="RedirectionURL('{% url 'gestion' %}')">Menu Gestion</button>
+        <br>
+        <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
+
+    </div>
+
+</body>
+
+</html>

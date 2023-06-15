@@ -47,6 +47,10 @@
             <button id="BoutonGestion" onclick="RedirectionURL('{% url 'gestion' %}')">Menu Gestion</button>
         {% endif %}
 
+        {% if est_eleve %}
+            <button id="BoutonNotes" onclick="RedirectionURL('{% url 'etudiants_notes' %}')">Vos notes</button>
+        {% endif %}
+
         <br>
         <button id="BoutonAccueil" onclick="RedirectionURL('{% url 'accueil' %}')">Accueil</button>
         <br>

@@ -63,7 +63,7 @@ CREATE TABLE `auth_group_permissions` (
   KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`),
   CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
   CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,6 +72,7 @@ CREATE TABLE `auth_group_permissions` (
 -- ORDER BY:  `id`
 
 /*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
+INSERT INTO `auth_group_permissions` VALUES (1,1,32),(2,1,36),(3,1,40),(4,1,44),(5,1,48),(6,1,52),(7,1,56),(8,1,24),(9,1,28),(10,2,21),(11,2,22),(12,2,23),(13,2,24),(14,2,25),(15,2,26),(16,2,27),(17,2,28),(18,2,29),(19,2,30),(20,2,31),(21,2,32),(22,2,33),(23,2,34),(24,2,35),(25,2,36),(26,2,37),(27,2,38),(28,2,39),(29,2,40),(30,2,41),(31,2,42),(32,2,43),(33,2,44),(34,2,45),(35,2,46),(36,2,47),(37,2,48),(38,2,49),(39,2,50),(40,2,51),(41,2,52),(42,2,53),(43,2,54),(44,2,55),(45,2,56);
 /*!40000 ALTER TABLE `auth_group_permissions` ENABLE KEYS */;
 
 --
@@ -122,7 +123,7 @@ CREATE TABLE `auth_user` (
   `date_joined` datetime(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +132,7 @@ CREATE TABLE `auth_user` (
 -- ORDER BY:  `id`
 
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$600000$eXv6ONDs9Sgun5FjGumzu1$ijb6rXR3lmGG/L6CqZXflfipp4RVPnaqShmpBnNNh2M=','2023-06-13 00:19:20.047255',1,'admin','','','admin@notike.tld',1,1,'2023-06-13 00:18:56.810679');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$600000$eXv6ONDs9Sgun5FjGumzu1$ijb6rXR3lmGG/L6CqZXflfipp4RVPnaqShmpBnNNh2M=','2023-06-15 17:29:25.940311',1,'admin','','','admin@notike.tld',1,1,'2023-06-13 00:18:56.810679');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 
 --
@@ -150,7 +151,7 @@ CREATE TABLE `auth_user_groups` (
   KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`),
   CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
   CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +205,7 @@ CREATE TABLE `curriculum` (
   KEY `curriculum_code_ue_aef2a401_fk_ue_code_ue` (`code_ue`),
   CONSTRAINT `curriculum_code_ressource_95d9e968_fk_ressources_code_ressource` FOREIGN KEY (`code_ressource`) REFERENCES `ressources` (`code_ressource`),
   CONSTRAINT `curriculum_code_ue_aef2a401_fk_ue_code_ue` FOREIGN KEY (`code_ue`) REFERENCES `ue` (`code_ue`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -237,7 +238,7 @@ CREATE TABLE `django_admin_log` (
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
   CONSTRAINT `django_admin_log_chk_1` CHECK ((`action_flag` >= 0))
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -246,7 +247,7 @@ CREATE TABLE `django_admin_log` (
 -- ORDER BY:  `id`
 
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2023-06-13 00:19:33.928786','1','Eleves',1,'[{\"added\": {}}]',3,1),(2,'2023-06-13 00:19:44.919633','2','Professeurs',1,'[{\"added\": {}}]',3,1);
+INSERT INTO `django_admin_log` VALUES (1,'2023-06-13 00:19:33.928786','1','Eleves',1,'[{\"added\": {}}]',3,1),(2,'2023-06-13 00:19:44.919633','2','Professeurs',1,'[{\"added\": {}}]',3,1),(3,'2023-06-13 14:10:21.151999','1','Eleves',2,'[{\"changed\": {\"fields\": [\"Permissions\"]}}]',3,1),(4,'2023-06-13 14:10:37.927196','2','Professeurs',2,'[{\"changed\": {\"fields\": [\"Permissions\"]}}]',3,1),(5,'2023-06-13 18:06:50.017693','6','testetu',2,'[{\"changed\": {\"fields\": [\"Groups\"]}}]',4,1),(6,'2023-06-13 18:08:21.160068','8','profess',2,'[{\"changed\": {\"fields\": [\"Groups\"]}}]',4,1),(7,'2023-06-13 18:16:21.227500','6','testetu',2,'[{\"changed\": {\"fields\": [\"Groups\"]}}]',4,1),(8,'2023-06-13 18:17:01.583997','6','testetu',2,'[{\"changed\": {\"fields\": [\"Groups\"]}}]',4,1),(9,'2023-06-13 18:22:33.296015','6','testetu',2,'[{\"changed\": {\"fields\": [\"Groups\"]}}]',4,1),(10,'2023-06-13 18:24:49.240035','7','enseignant',3,'',4,1),(11,'2023-06-13 18:25:09.905851','3','prof',3,'',4,1),(12,'2023-06-13 18:33:47.488199','8','profess',2,'[{\"changed\": {\"fields\": [\"Groups\"]}}]',4,1),(13,'2023-06-13 22:04:19.526758','5','popop',2,'[{\"changed\": {\"fields\": [\"Groups\"]}}]',4,1),(14,'2023-06-13 22:05:12.534713','5','popop',2,'[{\"changed\": {\"fields\": [\"Groups\"]}}]',4,1),(15,'2023-06-13 22:05:33.696033','5','popop',2,'[{\"changed\": {\"fields\": [\"Groups\"]}}]',4,1),(16,'2023-06-14 20:35:26.248622','12','aedaz',3,'',4,1),(17,'2023-06-14 20:35:34.319036','2','etudiant',3,'',4,1),(18,'2023-06-14 20:35:37.638267','9','HEY',3,'',4,1),(19,'2023-06-14 20:35:40.909385','18','iii',3,'',4,1),(20,'2023-06-14 20:35:43.824873','17','juzj',3,'',4,1),(21,'2023-06-14 20:35:47.311751','16','laol',3,'',4,1),(22,'2023-06-14 20:35:50.027847','20','pmazjko',3,'',4,1),(23,'2023-06-14 20:35:54.341061','5','popop',3,'',4,1),(24,'2023-06-14 20:35:57.371621','19','popopo',3,'',4,1),(25,'2023-06-14 20:36:00.757315','10','ppp',3,'',4,1),(26,'2023-06-14 20:36:03.706034','8','profess',3,'',4,1),(27,'2023-06-14 20:36:06.426098','13','rtrtrt',3,'',4,1),(28,'2023-06-14 20:36:08.990417','6','testetu',3,'',4,1),(29,'2023-06-14 20:36:11.806704','15','tttt',3,'',4,1),(30,'2023-06-14 20:36:14.717727','11','YIKES',3,'',4,1),(31,'2023-06-14 20:36:18.518574','14','zazaza',3,'',4,1),(32,'2023-06-15 16:14:35.803232','25','zaea',3,'',4,1),(33,'2023-06-15 16:14:38.813946','28','username',3,'',4,1),(34,'2023-06-15 16:14:41.741827','23','signal',3,'',4,1),(35,'2023-06-15 16:14:44.487181','27','professeur',3,'',4,1),(36,'2023-06-15 16:14:47.495910','24','oiazhjgeoui',3,'',4,1),(37,'2023-06-15 16:14:50.743215','26','hthth',3,'',4,1),(38,'2023-06-15 16:14:54.297543','22','etudianttest',3,'',4,1),(39,'2023-06-15 16:14:57.412416','29','etudiant',3,'',4,1),(40,'2023-06-15 16:15:02.328757','21','eleve',3,'',4,1),(41,'2023-06-15 16:17:28.849805','31','professeur',1,'[{\"added\": {}}]',4,1),(42,'2023-06-15 16:17:49.382175','31','professeur',2,'[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\", \"Groups\"]}}]',4,1),(43,'2023-06-15 17:29:38.807515','30','etudiant',3,'',4,1),(44,'2023-06-15 17:29:42.911410','31','professeur',3,'',4,1),(45,'2023-06-15 17:29:48.393189','9','Curriculum object (9)',3,'',14,1),(46,'2023-06-15 17:29:55.731493','8','Examens object (8)',3,'',11,1),(47,'2023-06-15 17:30:00.845242','R101','R101',3,'',9,1),(48,'2023-06-15 17:30:04.419409','UE1','UE1',3,'',10,1);
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 
 --
@@ -321,6 +322,7 @@ CREATE TABLE `django_session` (
 -- ORDER BY:  `session_key`
 
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` VALUES ('l0gkjm7sduq4ew5ll8zsy621nctf3vb6','.eJxVjEEOwiAQRe_C2hAqBWZcuvcMhGFAqgaS0q6MdzckXej2v_f-W_iwb8XvPa1-YXERkzj9bhTiM9UB-BHqvcnY6rYuJIciD9rlrXF6XQ_376CEXkatwViD7BQQO8Jgpjiz0pkp65wZouJMCHNMzmog7Ww8M9hkDKJBEp8v-Rs4YA:1q8sPi:l2YxYoMhldiYvRvYKRL6ssLvC5g8BtUPuY7USEy2AVM','2023-06-27 01:01:38.691100'),('ulsmm0g6e9p1g7kfhw5prvh4a94493tg','.eJxVjDEOwyAQBP9CHSHD2QekTO83oDvAwUkEkrGrKH-PLblIim12ZvctPG1r9ltLi5-juAptxOW3ZArPVA4SH1TuVYZa1mVmeSjypE2ONabX7XT_DjK1vK8HJrITho5JAWI0jlRAMqAtKQ3gAIih79hNPVoHqJTbMwRtbIoaxecL_oY3EQ:1q9YNc:UOlAzPztSGxWqLcAeMQGvUfiuoh96zeqAuTz14iVVZg','2023-06-28 21:50:16.274795');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 
 --
@@ -338,7 +340,7 @@ CREATE TABLE `enseignants` (
   PRIMARY KEY (`id_enseignant`),
   UNIQUE KEY `utilisateur_id` (`utilisateur_id`),
   CONSTRAINT `enseignants_utilisateur_id_f3596e34_fk_auth_user_id` FOREIGN KEY (`utilisateur_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -365,7 +367,7 @@ CREATE TABLE `enseignements` (
   KEY `enseignements_code_ressource_125f8733_fk_ressource` (`code_ressource`),
   CONSTRAINT `enseignements_code_ressource_125f8733_fk_ressource` FOREIGN KEY (`code_ressource`) REFERENCES `ressources` (`code_ressource`),
   CONSTRAINT `enseignements_id_enseignant_52d38e1e_fk_enseignan` FOREIGN KEY (`id_enseignant`) REFERENCES `enseignants` (`id_enseignant`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -394,7 +396,7 @@ CREATE TABLE `etudiants` (
   PRIMARY KEY (`id_etudiant`),
   UNIQUE KEY `utilisateur_id` (`utilisateur_id`),
   CONSTRAINT `etudiants_utilisateur_id_fda0fd73_fk_auth_user_id` FOREIGN KEY (`utilisateur_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -421,7 +423,7 @@ CREATE TABLE `examens` (
   PRIMARY KEY (`id_examen`),
   KEY `examens_code_ressource_4b9a727a_fk_ressources_code_ressource` (`code_ressource`),
   CONSTRAINT `examens_code_ressource_4b9a727a_fk_ressources_code_ressource` FOREIGN KEY (`code_ressource`) REFERENCES `ressources` (`code_ressource`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -450,7 +452,7 @@ CREATE TABLE `notes` (
   KEY `notes_id_examen_e7e2f7b6_fk_examens_id_examen` (`id_examen`),
   CONSTRAINT `notes_id_etudiant_ac1a5fef_fk_etudiants_id_etudiant` FOREIGN KEY (`id_etudiant`) REFERENCES `etudiants` (`id_etudiant`),
   CONSTRAINT `notes_id_examen_e7e2f7b6_fk_examens_id_examen` FOREIGN KEY (`id_examen`) REFERENCES `examens` (`id_examen`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -522,4 +524,4 @@ CREATE TABLE `ue` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-13  2:22:19
+-- Dump completed on 2023-06-15 19:48:06

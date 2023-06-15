@@ -14,8 +14,12 @@ class Etudiants(models.Model):
 
     class Meta:
 
-        managed = True   # Interdit à Django d'altérer la structure de la table
+        managed = True   # Si 'False', interdit à Django d'altérer la structure de la table
         db_table = 'etudiants'   # Associe le modèle à la table 'etudiants' de la base de données
+
+    def __str__(self):
+
+        return f"{self.nom} {self.prenom}"
 
 
 class Examens(models.Model):
@@ -76,6 +80,10 @@ class Ue(models.Model):
         managed = True   # Interdit à Django d'altérer la structure de la table
         db_table = 'ue'   # Associe le modèle à la table 'ue' de la base de données
 
+    def __str__(self):
+
+        return self.code_ue
+
 
 class Ressources(models.Model):
 
@@ -88,6 +96,10 @@ class Ressources(models.Model):
 
         managed = True   # Interdit à Django d'altérer la structure de la table
         db_table = 'ressources'   # Associe le modèle à la table 'ressources' de la base de données
+
+    def __str__(self):
+
+        return self.code_ressource
 
 
 class Enseignants(models.Model):

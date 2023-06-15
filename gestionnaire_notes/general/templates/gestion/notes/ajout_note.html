@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Gestion</title>
+    <title>Title</title>
 
     <style>
 
@@ -41,8 +41,16 @@
 
     <div class="BlocCentral">
 
-        <button id="BoutonGestionRessources" onclick="RedirectionURL('{% url 'gestion_ressources' %}')">Gestion Ressources</button>
-        <button id="BoutonGestionUE" onclick="RedirectionURL('{% url 'gestion_ue' %}')">Gestion UE</button>
+        <form method="POST">
+
+            {% csrf_token %}
+            <h2> Ajoutez une note:</h2>
+            {{ formulaire.as_p }}
+            <button type="submit">Ajouter</button>
+
+        </form>
+
+        <br>
         <button id="BoutonGestionNotes" onclick="RedirectionURL('{% url 'gestion_notes' %}')">Gestion Notes</button>
         <br>
         <button id="BoutonAjout" onclick="RedirectionURL('{% url 'ajout' %}')">Menu Ajout</button>
