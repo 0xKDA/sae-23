@@ -28,6 +28,26 @@
 
     </script>
 
+    <style>
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
 </head>
 
 <body>
@@ -45,10 +65,10 @@
         </form>
 
         <button id="BoutonAccueil" onclick="RedirectionURL('{% url 'accueil' %}')">Accueil</button>
+
     <p> (1) : C'est l'identifiant que vous utiliserez pour vous connecter. </p>
     <p> (2) : 10 caractères minimum : une minuscule, une majuscule, un chiffre et un symbole. </p>
     </div>
-
 
 </body>
 

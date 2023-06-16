@@ -6,9 +6,9 @@
 
     <meta charset="UTF-8">
     <title>Modification UE</title>
+
     {% load static %}
     <link rel="stylesheet" href="{% static 'css.css' %}">
-    
 
     <script>
 
@@ -22,12 +22,15 @@
 
 <body>
 
+
     <div class="connexion">
 
         <form method="POST">
 
             {% csrf_token %}
+
             <h2> Modifiez l'UE':</h2>
+
             {{ formulaire.as_p }}
             <button type="submit">Modifier</button>
 

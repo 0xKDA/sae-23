@@ -6,10 +6,9 @@
 
     <meta charset="UTF-8">
     <title>Modification Ressource</title>
+
     {% load static %}
     <link rel="stylesheet" href="{% static 'css.css' %}">
-
-
 
     <script>
 
@@ -29,7 +28,9 @@
 
             {% csrf_token %}
             <h2> Modifiez la ressource:</h2>
+
             {{ formulaire.as_p }}<br>
+
             <button type="submit">Modifier</button>
 
         </form>

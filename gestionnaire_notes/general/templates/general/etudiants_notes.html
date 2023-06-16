@@ -6,11 +6,13 @@
 
     <meta charset="UTF-8">
     <title>Notes Etudiant</title>
+
     {% load static %}
     <link rel="stylesheet" href="{% static 'notes.css' %}">
     <style>
-s
+
         .connexion {
+
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -91,7 +93,9 @@ s
         {% endif %}
 
         <br>
+
         <div class="boutonNote">
+
         <button id="Exporter" class="NePasImprimer" onclick="window.print()">Exporter/Imprimer</button>
         <br>
         <button id="BoutonAccueil" class="NePasImprimer" onclick="RedirectionURL('{% url 'accueil' %}')">Accueil</button>
@@ -99,7 +103,9 @@ s
         <button id="BoutonProfil" class="NePasImprimer" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
         <br>
         <button id="BoutonDeconnexion" class="NePasImprimer" onclick="RedirectionURL('{% url 'deconnexion' %}')">Déconnexion</button>
+
         </div>
+
     </div>
 
 </body>
