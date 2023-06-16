@@ -3,7 +3,14 @@
 ---  
 * Le dossier "gestionnaire_notes" contient le code du projet en lui-même.  
 * Le dossier ".idea" est spécifique à PyCharm et doit être ignoré par les autres IDE.
-* Le dossier MySQL contient un exemplaire de la base de données utilisée par le projet.
+* Le dossier "backup" contient les scripts de chiffrement/déchiffrement de la base de données.
+* Le dossier "cert" contient les fichiers relatifs au certificat SSL/TLS.
+* Le dossier "init" contient le script relatif au lancement automatique.
+* Le dossier "MySQL" contient un exemplaire de la base de données utilisée par le projet.
+* Le dossier "Script MySQL" contient les scripts de création de la base de données.
+  * /!\ Le script ne créé pas les groupes "Eleves" et "Professeurs" nativement !
+  * /!\ De même, les relations "utilisateur" avec la table "auth_user" non plus !  
+    * Les relations avec "auth_user" seront créés lors de la migration des modèles !
 ---
 #### <u>Installer les dépendances sous PyCharm:</u>  
 
@@ -57,3 +64,5 @@ pip install -r dependencies.txt
    python manage.py makemigrations  
    python manage.py migrate
    ```
+
+   **N.B. : Les relations 1-To-1 avec "auth_user" se feront lors de la migration des modèles.**
