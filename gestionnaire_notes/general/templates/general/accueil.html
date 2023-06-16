@@ -6,6 +6,8 @@
 
     <meta charset="UTF-8">
     <title>Accueil</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css.css' %}">
 
     <style>
 
@@ -31,27 +33,43 @@
 
 <body>
 
-    <div class="BlocCentral">
+    <div class="page">
+        <div class="all">
+            <nav>
+                {% if not user.is_authenticated %}
+                <a href="{% url 'connexion' %}"><button>Connexion</button></a>
+                <a href="{% url 'inscription' %}"><button>Inscription</button></a>
+                <a href="{% url 'documentation' %}">
+                    <button>Documentation</button></a>
+                <a href="{% url 'about_us' %}">
+                    <button>About Us</button></a>
+                {% elif user.is_authenticated %}
+                    {% if not user.is_superuser %}
+                    <a href="{% url 'profil' %}"><button>Profil</button></a>
+                    {% endif %}
+                    <a href="{% url 'deconnexion' %}"><button>Se déconnecter</button></a>
+                {% endif %}
+            </nav>
+            <div class="login">
+                <a href="{%url 'profil' %}"><img src="{% static 'profil.png' %}" /></a></a>
+            </div>
+        </div>
+        <div id="wrap">
+            <article class="article">
+                <h1>Ahoy, matelot ! Bienvenue à bord du " S.S. Notike ", notre vaisseau phare vers l'aventure de l'enseignement.
 
-        <h2>Bienvenue sur la page d'accueil !</h2>
-
-        <!-- Affiche les boutons si l'utilisateur n'est pas authentifié -->
-        {% if not user.is_authenticated %}
-            <button id="BoutonConnexion" onclick="RedirectionURL('{% url 'connexion' %}')">Connexion</button>
-            <button id="BoutonInscription" onclick="RedirectionURL('{% url 'inscription' %}')">Inscription</button>
-
-        {% elif user.is_authenticated %}
-
-            <!-- Affiche le bouton si l'utilisateur n'est PAS un superuser -->
-            {% if not user.is_superuser %}
-            <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
-            {% endif %}
-
-            <!-- Affiche le bouton si l'utilisateur est authentifié -->
-            <button id="BoutonDeconnexion" onclick="RedirectionURL('{% url 'deconnexion' %}')">Déconnexion</button>
-
-        {% endif %}
-
+                    Ici, nous avons un univers plein de personnages colorés. Nous avons des étudiants, prêts et désireux de plonger dans l'océan du savoir. Ces jeunes esprits curieux se retrouvent face à face avec nos enseignants, des explorateurs aguerris des contrées éloignées du Python.
+                    Les étudiants et les enseignants s'embarquent ensemble dans un voyage à travers les unités d'enseignement, des îles mystérieuses pleines de trésors de connaissances. Mais, comme toute île au trésor, elles sont gardées par des énigmes ingénieuses : les examens !
+                    Et bien sûr, pour tout bon pirate, le but ultime est le trésor : les notes. Ces joyaux scintillants, parfois des diamants, parfois du charbon, sont le trophée de la victoire sur l'île. Mais attention, chaque note est accompagnée de son propre perroquet bavard - l'appréciation, qui ne manque jamais une occasion de donner son opinion non sollicitée !
+                    Alors, comment ces notes se retrouvent-elles à bord, vous demandez-vous ? C'est simple ! Avec votre fidèle plume (ou clavier), vous entrez chaque note une par une, un processus aussi satisfaisant que de creuser un trou pour enterrer votre trésor !
+                    Enfin, à la fin de votre aventure éducative, il est temps de dresser un bilan. Avec un simple clic, vous pouvez imprimer la carte de votre voyage, montrant toutes les victoires (et les défaites) que vous avez rencontrées en cours de route. Un véritable récit d'aventures, de victoires et de défis, à conserver et à raconter aux générations futures.
+                    Alors, attachez votre bandana, saisissez votre épée de connaissance et rejoignez-nous dans cette quête exaltante de l'enseignement. Embarquez pour l'aventure, car il y a toujours un nouvel horizon à explorer avec Notike. Yarrr !</h1> 
+            </article>
+            <article class="article">
+                <h1>Lorem Elsass ipsum ac Morbi Gal !  schnaps leverwurscht Wurschtsalad elementum kuglopf bissame tristique consectetur tellus commodo non Verdammi gravida mänele rhoncus rossbolla Spätzle suspendisse salu Hans dui und amet geïz leo kartoffelsalad Pellentesque amet so id schneck sed placerat elit gal Gal. météor morbi wie dolor tchao bissame Salut bisamme hopla id, baeckeoffe turpis nullam dignissim vulputate wurscht barapli messti de Bischheim quam, risus, munster ornare libero. sit Kabinetpapier turpis, senectus DNA, hop aliquam schpeck hopla Mauris sit ornare s'guelt Richard Schirmeck lacus non Salu bissame sagittis Oberschaeffolsheim amet, Chulia Roberstau eget Chulien picon bière Strasbourg gewurztraminer flammekueche porta hopla semper réchime Heineken kougelhopf leo nüdle mollis Oberschaeffolsheim Coopé de Truchtersheim Miss Dahlias condimentum Racing. libero, ante yeuh. rucksack eleifend varius Christkindelsmärik geht's mamsell Yo dû. vielmols, hopla habitant in, Huguette quam. ch'ai blottkopf, adipiscing tellus hoplageiss lotto-owe ftomi! jetz gehts los Pfourtz ! sit merci vielmols purus ac chambon Carola auctor, et knepfle knack bredele pellentesque libero, sed ullamcorper</h1> 
+            </article>
+        </div>           
+        
     </div>
 
 </body>

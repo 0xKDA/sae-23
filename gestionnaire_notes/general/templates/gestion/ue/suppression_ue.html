@@ -7,21 +7,8 @@
     <meta charset="UTF-8">
     <title>Suppression UE</title>
 
-    <style>
-
-        .BlocCentral {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .EspaceHyperlien {
-            margin-top: 1em;
-        }
-
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css.css' %}">
 
     <script>
 
@@ -35,7 +22,7 @@
 
 <body>
 
-    <div class="BlocCentral">
+    <div class="connexion">
 
         <h2>Voulez-vous vraiment supprimer {{ ue.code_ue }} - {{ ue.nom }} ?</h2>
 

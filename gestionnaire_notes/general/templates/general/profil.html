@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 
-<html lang="fr">
 
-<head>
-
-    <meta charset="UTF-8">
-    <title>Profil</title>
-
-    <style>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Profil</title>
+        <meta charset="utf-8"/>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css.css' %}">
+        <style>
 
         .BlocCentral {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
+            justify-content: flex-end;
+            height: 30vh;
         }
 
     </style>
@@ -27,37 +28,42 @@
 
     </script>
 
-</head>
+    </head>
+    <body>
+        <div class="page">
+            <div class="all">
+                <nav>
+                    <a href="{% url 'accueil' %}"><button>Retour à l'accueil</button></a>
+                    <a href="{% url 'deconnexion' %}"><button>Se déconnecter</button></a>
+                </nav>
+                <div class="login">
+                    <img src="{% static 'profil.png' %}" />
+                </div>
+            </div>  
+            <aside>
+                    <article class="information">
+                        <h1>Votre page de profil</h1>
+                        <p>Nom d'utilisateur: {{ user.username }}</p>
+                        <p>@Email: {{ user.email }}</p>
+                        {% load i18n francais %}
+                        {% language 'fr' %}
+                        <p>Dernière connexion : {{ user.last_login|date:"j F Y, H\hi"|nom_mois_majuscule }}</p>
+                        {% endlanguage %}
+                        {% if est_professeur %}
+                        <button id="BoutonAjout" onclick="RedirectionURL('{% url 'ajout' %}')">Menu Ajout</button>
+                        <button id="BoutonGestion" onclick="RedirectionURL('{% url 'gestion' %}')">Menu Gestion</button>
+                        {% endif %}
 
-<body>
+                        {% if est_eleve %}
+                        <button id="BoutonNotes" onclick="RedirectionURL('{% url 'etudiants_notes' %}')">Vos notes</button>
+                        {% endif %}
+                    </article>
+                </aside>    
 
-    <div class="BlocCentral">
+                <article>
+                    v
 
-        <h1>Votre page de profil</h1>
-        <p>Nom d'utilisateur: {{ user.username }}</p>
-        <p>@Email: {{ user.email }}</p>
-
-        {% load i18n francais %}
-        {% language 'fr' %}
-            <p>Dernière connexion : {{ user.last_login|date:"j F Y, H\hi"|nom_mois_majuscule }}</p>
-        {% endlanguage %}
-
-        {% if est_professeur %}
-            <button id="BoutonAjout" onclick="RedirectionURL('{% url 'ajout' %}')">Menu Ajout</button>
-            <button id="BoutonGestion" onclick="RedirectionURL('{% url 'gestion' %}')">Menu Gestion</button>
-        {% endif %}
-
-        {% if est_eleve %}
-            <button id="BoutonNotes" onclick="RedirectionURL('{% url 'etudiants_notes' %}')">Vos notes</button>
-        {% endif %}
-
-        <br>
-        <button id="BoutonAccueil" onclick="RedirectionURL('{% url 'accueil' %}')">Accueil</button>
-        <br>
-        <button id="BoutonDeconnexion" onclick="RedirectionURL('{% url 'deconnexion' %}')">Déconnexion</button>
-
-    </div>
-
-</body>
-
+                </article>
+        </div>
+    </body>
 </html>

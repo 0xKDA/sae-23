@@ -7,30 +7,8 @@
     <meta charset="UTF-8">
     <title>Gestion UE</title>
 
-    <style>
-
-        .BlocCentral {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .AlignementGauche {
-            text-align: left;
-            width: fit-content;
-        }
-
-        .EspaceUE {
-            margin-bottom: 1em;
-        }
-
-        .EspaceHyperlien {
-            margin-top: 1em;
-        }
-
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css.css' %}">
 
     <script>
 
@@ -44,7 +22,7 @@
 
 <body>
 
-    <div class="BlocCentral">
+    <div class="connexion">
 
         <div class="AlignementGauche">
 

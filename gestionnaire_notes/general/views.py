@@ -10,6 +10,14 @@ from .models import *
 from .forms import *
 
 
+def documentation(request):
+
+    return render(request, 'general/documentation.html')
+
+def about_us(request):
+
+    return render(request, 'general/about_us.html')
+
 def accueil(request):   # Vue de gestion de l'affichage de la page d'accueil
 
     return render(request, 'general/accueil.html')

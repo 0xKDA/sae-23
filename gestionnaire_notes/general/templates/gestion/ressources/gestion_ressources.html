@@ -7,30 +7,8 @@
     <meta charset="UTF-8">
     <title>Gestion Ressources</title>
 
-    <style>
-
-        .BlocCentral {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .AlignementGauche {
-            text-align: left;
-            width: fit-content;
-        }
-
-        .EspaceRessources {
-            margin-bottom: 1em;
-        }
-
-        .EspaceHyperlien {
-            margin-top: 1em;
-        }
-
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css.css' %}">
 
     <script>
 
@@ -44,7 +22,7 @@
 
 <body>
 
-    <div class="BlocCentral">
+    <div class="connexion">
 
         <div class="AlignementGauche">
 
@@ -52,7 +30,7 @@
 
                 <div class="EspaceRessources">
 
-                    &bull; <span>{{ ressource.code_ressource }} - {{ ressource.nom }} : " {{ ressource.descriptif }} "</span>
+                    &bull; <span>{{ ressource.code_ressource }} - {{ ressource.nom }} : " {{ ressource.descriptif }} "</span><br>
 
                     &bull; <button id="BoutonModifierRessource" onclick="RedirectionURL('{% url 'modification_ressource' ressource.code_ressource %}')">Modifier</button>
                     <button id="BoutonSupprimerRessource" onclick="RedirectionURL('{% url 'suppression_ressource' ressource.code_ressource %}')">Supprimer</button>

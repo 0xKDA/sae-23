@@ -7,14 +7,26 @@
     <meta charset="UTF-8">
     <title>Suppression Note</title>
 
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css.css' %}">
     <style>
+
+        .test {
+                display: flex;
+                flex-basis: auto;
+                justify-content: center;
+                margin-left: 35%;
+                margin-right: 35%;
+            }
 
         .BlocCentral {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+
+            height: 45vh;
+
         }
 
         .EspaceHyperlien {
@@ -45,6 +57,9 @@
             <button type="submit">Confirmer</button>
 
         </form>
+
+    </div>
+    <div class="test">
 
         <br>
         <button id="BoutonGestionNotes" onclick="RedirectionURL('{% url 'gestion_notes' %}')">Gestion Notes</button>

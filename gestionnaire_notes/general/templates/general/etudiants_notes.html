@@ -7,14 +7,25 @@
     <meta charset="UTF-8">
     <title>Notes Etudiant</title>
 
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'notes.css' %}">
     <style>
 
-        .BlocCentral {
+        .connexion {
+
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
+        }
+
+        .boutonNote{
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 25%;
+        margin-left: 25%;
+
         }
 
         form {
@@ -82,6 +93,9 @@
         {% endif %}
 
         <br>
+
+        <div class="boutonNote">
+
         <button id="Exporter" class="NePasImprimer" onclick="window.print()">Exporter/Imprimer</button>
         <br>
         <button id="BoutonAccueil" class="NePasImprimer" onclick="RedirectionURL('{% url 'accueil' %}')">Accueil</button>
@@ -89,6 +103,8 @@
         <button id="BoutonProfil" class="NePasImprimer" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
         <br>
         <button id="BoutonDeconnexion" class="NePasImprimer" onclick="RedirectionURL('{% url 'deconnexion' %}')">Déconnexion</button>
+
+        </div>
 
     </div>
 

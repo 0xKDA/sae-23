@@ -6,6 +6,28 @@
 
     <meta charset="UTF-8">
     <title>Connexion</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css.css' %}">
+
+    <style>
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
 
     <style>
 
@@ -31,7 +53,7 @@
 
 <body>
 
-    <div class="BlocCentral">
+    <div class="connexion">
 
         <h2>Connexion</h2>
 

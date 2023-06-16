@@ -19,7 +19,7 @@ class FormulaireInscription(forms.ModelForm):   # Formulaire de création de com
 
     username = forms.CharField(   # Correspond au champ 'username' de la table 'auth_user' de Django
         label="Nom d'utilisateur",
-        help_text="C'est l'identifiant que vous utiliserez pour vous connecter.")
+        help_text="(1)")
     first_name = forms.CharField(label="Prénom")   # Correspond au champ 'first_name' de la table 'auth_user'
     last_name = forms.CharField(label="Nom de famille")   # Correspond au champ 'last_name' de la table 'auth_user'
 
@@ -28,7 +28,7 @@ class FormulaireInscription(forms.ModelForm):   # Formulaire de création de com
     password = forms.CharField(   # Correspond au champ 'password' de la table 'auth_user'
         widget=forms.PasswordInput,   # Permet de masquer le mot de passe pendant la saisie
         label="Mot de passe",
-        help_text="10 caractères minimum, incluant : une minuscule, une majuscule, un chiffre et un symbole.")
+        help_text="(2)")
     confirmer_mdp = forms.CharField(   # Champ de confirmation du mot de passe
         widget=forms.PasswordInput,
         label=" Confirmer le mot de passe")
