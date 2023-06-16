@@ -10,7 +10,7 @@
 * Le dossier "Script MySQL" contient les scripts de création de la base de données.
   * /!\ Le script ne créé pas les groupes "Eleves" et "Professeurs" nativement !
   * /!\ De même, les relations "utilisateur" avec la table "auth_user" non plus !  
-    * Les relations avec "auth_user" seront créés lors de la migration des modèles !
+    * Les relations avec "auth_user" seront créées lors de la migration des modèles !
 ---
 #### <u>Installer les dépendances sous PyCharm:</u>  
 
@@ -66,3 +66,6 @@ pip install -r dependencies.txt
    ```
 
    **N.B. : Les relations 1-To-1 avec "auth_user" se feront lors de la migration des modèles.**
+   
+---
+*Ce projet a été réalisé avec amour par la collaboration de 0xKDA, iPresing et hell-noa.*
