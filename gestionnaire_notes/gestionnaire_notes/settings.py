@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-f&v&1l&-s2bx5p^+0!q-u#-&$@2=r@e^w^7bs&o5qvj1e(c12&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['notike-gestion.ltd','127.0.0.1']
 
 
 # Application definition
@@ -79,8 +79,10 @@ DATABASES = {
     'default': {   # Utilisation de MySQL comme SGBD par défaut
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sae_23',   # Nom de la base de données MySQL
-        'USER': 'scribe',   # L'utilisateur 'scribe', de la base de données, possède uniquement les permissions CRUD
-        'PASSWORD': 'N0t1k3ScR1b3',   # Mot de passe de l'utilisateur 'scribe'
+        #'USER': 'scribe',   # L'utilisateur 'scribe', de la base de données, possède uniquement les permissions CRUD
+        #'PASSWORD': 'N0t1k3ScR1b3',   # Mot de passe de l'utilisateur 'scribe'
+        'USER': 'root',
+        'PASSWORD': 'toto',
         'HOST': 'localhost',   # L'utilisateur 'scribe' est exécuté en localhost
         'PORT': '3306',   # Le port utilisé par défaut, sous Windows, par MySQL
     }
@@ -122,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'UTC'
 
@@ -135,17 +137,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = '/var/www/html/site/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTOCOL", "https")
 LOGIN_URL = 'connexion'   # Définit la page 'connexion' comme URL principale du système d'authentification
 LOGIN_REDIRECT_URL = 'accueil'   # Redirige vers la page 'accueil' une fois la connexion réussie
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True   # Permet de déconnecter les utilisateurs à la fermeture du navigateur
 
-CSRF_COOKIE_SECURE = False   # Force l'envoi des cookies CSRF via HTTPS. Laisser en False pour le moment !
-SESSION_COOKIE_SECURE = False   # Force l'envoi du cookie de session via HTTPS. Laisser en False pour le moment !
-SECURE_SSL_REDIRECT = False   # Force la redirection des requêtes HTTP via HTTPS. Laisser en False pour le moment !
+CSRF_COOKIE_SECURE = True   # Force l'envoi des cookies CSRF via HTTPS. Laisser en False pour le moment !
+SESSION_COOKIE_SECURE = True   # Force l'envoi du cookie de session via HTTPS. Laisser en False pour le moment !
+SECURE_SSL_REDIRECT = True   # Force la redirection des requêtes HTTP via HTTPS. Laisser en False pour le moment !

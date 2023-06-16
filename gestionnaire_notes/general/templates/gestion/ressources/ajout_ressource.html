@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Ajout Ressource</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css.css' %}">
+
+
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="connexion">
+
+        <form method="POST">
+
+            {% csrf_token %}
+            <h2> Ajoutez une ressource:</h2>
+            {{ formulaire.as_p }}<br>
+            <button type="submit">Ajouter</button>
+
+        </form>
+
+        <br>
+        <button id="BoutonGestionRessources" onclick="RedirectionURL('{% url 'gestion_ressources' %}')">Gestion Ressources</button>
+        <br>
+        <button id="BoutonAjout" onclick="RedirectionURL('{% url 'ajout' %}')">Menu Ajout</button>
+        <br>
+        <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
+
+    </div>
+
+</body>
+
+</html>

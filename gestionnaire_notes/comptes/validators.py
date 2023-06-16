@@ -33,7 +33,8 @@ class VerificateurMotDePasse:   # Validateur de mots de passe personnalisé pour
 
     def get_help_text(self):
 
-        return "Votre mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre, et un caractère spécial."
+        return ("Votre mot de passe doit contenir au moins une lettre majuscule, "
+                "une lettre minuscule, un chiffre, et un caractère spécial.")
 
 
 class ValidateurLongueurMinimalePersonnalise(MinimumLengthValidator):

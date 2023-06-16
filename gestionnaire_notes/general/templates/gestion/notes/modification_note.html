@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Modification d'une note</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css.css' %}">
+    <style>
+
+
+        .test {
+                display: flex;
+                flex-basis: auto;
+                justify-content: center;
+                margin-left: 35%;
+                margin-right: 35%;
+            }
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 45vh;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .EspaceHyperlien {
+            margin-top: 1em;
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="BlocCentral">
+
+        <form method="post">
+
+            {% csrf_token %}
+            <h2> Modifiez la note:</h2>
+            {{ form.as_p }}
+            <button type="submit">Enregistrer</button>
+
+        </form>
+    </div>
+    <div class="test">
+
+        <br>
+        <button id="BoutonGestionNotes" onclick="RedirectionURL('{% url 'gestion_notes' %}')">Gestion Notes</button>
+        <button id="BoutonAjoutNote" onclick="RedirectionURL('{% url 'ajout_note' %}')">Ajout Note</button>
+        <br>
+        <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
+
+    </div>
+
+</body>
+
+</html>

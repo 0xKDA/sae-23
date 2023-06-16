@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Modification UE</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css.css' %}">
+    
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="connexion">
+
+        <form method="POST">
+
+            {% csrf_token %}
+            <h2> Modifiez l'UE':</h2>
+            {{ formulaire.as_p }}
+            <button type="submit">Modifier</button>
+
+        </form>
+
+        <br>
+        <button id="BoutonGestionUE" onclick="RedirectionURL('{% url 'gestion_ue' %}')">Gestion UE</button>
+        <button id="BoutonAjoutUE" onclick="RedirectionURL('{% url 'ajout_ue' %}')">Ajout UE</button>
+        <br>
+        <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
+
+    </div>
+
+</body>
+
+</html>

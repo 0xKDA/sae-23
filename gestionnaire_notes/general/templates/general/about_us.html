@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>...</title>
+  <meta charset="utf-8"/>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css2.css' %}">
+  <style>
+    .escape-button.flee {
+      animation: fleeAnimation 1s linear infinite alternate;
+    }
+
+    @keyframes fleeAnimation {
+      0% {
+        top: 0;
+        left: 0;
+      }
+      100% {
+        top: -500px;
+        left: -500px;
+      }
+    }
+  </style>
+  <script>
+    const escapeButtons = document.querySelectorAll('.escape-button');
+
+    escapeButtons.forEach(button => {
+      button.addEventListener('mouseenter', () => {
+        button.classList.add('flee');
+      });
+
+      button.addEventListener('mouseleave', () => {
+        button.classList.remove('flee');
+      });
+    });
+  </script>
+
+</head>
+<body>
+
+  <div class="page">
+    <div class="all">
+      <nav>
+        <a href="https://www.google.fr"><button class="escape-button">DOCUMENTATION</button></a>
+        <a href="https://www.google.fr"><button class="escape-button">ABOUT US</button></a>
+        <a href="https://www.google.fr"><button class="escape-button">ACCUEIL</button></a>
+        <a href="https://www.google.fr"><button class="escape-button">PROFIL</button></a>
+      </nav>
+      
+    </div>
+    <article>
+      <h1> Actuellement en première année du BUT réseau et télécommunication de Colmar nous sommes un groupe de trois élèves, d'Azevedo Kevin, Treppier Timothée et Hell Noa. Nous vous proposons ce site internet répondant au projet sae203 et vous invitons à en prendre plus ample connaissance en accédant à la page documentation associée. Nous espérons que vous trouver notre projet agréable et facile projet agréable est facile d'utilisation, si vous souhaitez l'utiliser de façon journalière, merci de prendre contact avec notre équipe pour mettre en place les différentes modalités de paiements</h1>
+    </article>  
+  </div>
+
+ 
+</body>
+</html>

@@ -6,22 +6,49 @@
 
     <meta charset="UTF-8">
     <title>Inscription</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css.css' %}">
+    <style>
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
 
 </head>
 
 <body>
 
-    <h2>Inscription</h2>
+    <div class="connexion">
 
-    <form method="post">
+        <h2>Inscription</h2>
 
-        {% csrf_token %}
-        {{ formulaire.as_p }}
-        <button type="submit">S'inscrire</button>
+        <form method="post">
 
-        <a href="{% url 'accueil' %}"><button>Retour à l'accueil</button></a>
+            {% csrf_token %}
+            {{ formulaire.as_p }}
+            <button type="submit">S'inscrire</button>
 
-    </form>
+        </form>
+
+        <button id="BoutonAccueil" onclick="RedirectionURL('{% url 'accueil' %}')">Accueil</button>
+    <p> (1) : C'est l'identifiant que vous utiliserez pour vous connecter. </p>
+    <p> (2) : 10 caractères minimum : une minuscule, une majuscule, un chiffre et un symbole. </p>
+    </div>
+
 
 </body>
 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css.css' %}">
+    <style>
+
+        .test {
+                display: flex;
+                flex-basis: auto;
+                justify-content: center;
+                margin-left: 35%;
+                margin-right: 35%;
+            }
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 45vh;
+            color: white;
+        }
+
+
+        .BlocCentral H2{
+
+            color: white;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .EspaceHyperlien {
+            margin-top: 1em;
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="BlocCentral">
+
+        <form method="POST">
+
+            {% csrf_token %}
+            <h2> Ajoutez une note:</h2>
+            {{ formulaire.as_p }}
+            <button type="submit">Ajouter</button>
+
+        </form>
+    </div>
+    <div class="test">
+        <br>
+        <button id="BoutonGestionNotes" onclick="RedirectionURL('{% url 'gestion_notes' %}')">Gestion Notes</button>
+        <br>
+        <button id="BoutonAjout" onclick="RedirectionURL('{% url 'ajout' %}')">Menu Ajout</button>
+        <br>
+        <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
+
+    </div>
+
+</body>
+
+</html>

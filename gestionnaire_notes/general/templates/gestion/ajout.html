@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css.css' %}">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Ajout</title>
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div class="BlocCentral">
+
+        <button id="BoutonAjoutRessource" onclick="RedirectionURL('{% url 'ajout_ressource' %}')">Ajout Ressource</button>
+        <button id="BoutonAjoutUE" onclick="RedirectionURL('{% url 'ajout_ue' %}')">Ajout UE</button>
+        <button id="BoutonAjoutNote" onclick="RedirectionURL('{% url 'ajout_note' %}')">Ajout Note</button>
+        <br>
+        <button id="BoutonGestion" onclick="RedirectionURL('{% url 'gestion' %}')">Menu Gestion</button>
+        <br>
+        <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
+
+    </div>
+</body>
+
+</html>
