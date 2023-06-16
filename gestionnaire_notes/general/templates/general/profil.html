@@ -7,16 +7,56 @@
     <meta charset="UTF-8">
     <title>Profil</title>
 
+    <style>
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
 </head>
 
 <body>
 
-    <h1>Votre page de profil</h1>
-    <p>Nom d'utilisateur: {{ user.username }}</p>
-    <p>@Email: {{ user.email }}</p>
-    <p>Dernière connexion : {{ user.last_login }}</p>
-    <a href="{% url 'accueil' %}"><button>Retour à l'accueil</button></a>
-    <a href="{% url 'deconnexion' %}"><button>Se déconnecter</button></a>
+    <div class="BlocCentral">
+
+        <h1>Votre page de profil</h1>
+        <p>Nom d'utilisateur: {{ user.username }}</p>
+        <p>@Email: {{ user.email }}</p>
+
+        {% load i18n francais %}
+        {% language 'fr' %}
+            <p>Dernière connexion : {{ user.last_login|date:"j F Y, H\hi"|nom_mois_majuscule }}</p>
+        {% endlanguage %}
+
+        {% if est_professeur %}
+            <button id="BoutonAjout" onclick="RedirectionURL('{% url 'ajout' %}')">Menu Ajout</button>
+            <button id="BoutonGestion" onclick="RedirectionURL('{% url 'gestion' %}')">Menu Gestion</button>
+        {% endif %}
+
+        {% if est_eleve %}
+            <button id="BoutonNotes" onclick="RedirectionURL('{% url 'etudiants_notes' %}')">Vos notes</button>
+        {% endif %}
+
+        <br>
+        <button id="BoutonAccueil" onclick="RedirectionURL('{% url 'accueil' %}')">Accueil</button>
+        <br>
+        <button id="BoutonDeconnexion" onclick="RedirectionURL('{% url 'deconnexion' %}')">Déconnexion</button>
+
+    </div>
 
 </body>
 

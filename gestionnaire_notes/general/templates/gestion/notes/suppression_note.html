@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Suppression Note</title>
+
+    <style>
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .EspaceHyperlien {
+            margin-top: 1em;
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="BlocCentral">
+
+        <h2>Voulez-vous vraiment supprimer la note de l'examen {{ note.id_examen.titre }} pour l'étudiant {{ note.id_etudiant }} ?</h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+            <button type="submit">Confirmer</button>
+
+        </form>
+
+        <br>
+        <button id="BoutonGestionNotes" onclick="RedirectionURL('{% url 'gestion_notes' %}')">Gestion Notes</button>
+        <button id="BoutonAjoutNote" onclick="RedirectionURL('{% url 'ajout_note' %}')">Ajout Note</button>
+        <br>
+        <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
+
+    </div>
+
+</body>
+
+</html>

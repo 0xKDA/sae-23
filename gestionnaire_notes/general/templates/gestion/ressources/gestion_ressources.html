@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Gestion Ressources</title>
+
+    <style>
+
+        .BlocCentral {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .AlignementGauche {
+            text-align: left;
+            width: fit-content;
+        }
+
+        .EspaceRessources {
+            margin-bottom: 1em;
+        }
+
+        .EspaceHyperlien {
+            margin-top: 1em;
+        }
+
+    </style>
+
+    <script>
+
+        function RedirectionURL(url) {
+            window.location.href = url;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="BlocCentral">
+
+        <div class="AlignementGauche">
+
+            {% for ressource in ressources %}
+
+                <div class="EspaceRessources">
+
+                    &bull; <span>{{ ressource.code_ressource }} - {{ ressource.nom }} : " {{ ressource.descriptif }} "</span>
+
+                    &bull; <button id="BoutonModifierRessource" onclick="RedirectionURL('{% url 'modification_ressource' ressource.code_ressource %}')">Modifier</button>
+                    <button id="BoutonSupprimerRessource" onclick="RedirectionURL('{% url 'suppression_ressource' ressource.code_ressource %}')">Supprimer</button>
+
+                </div>
+
+            {% empty %}
+
+                <h2> Vous n'avez ajouté aucune ressource ! </h2>
+
+            {% endfor %}
+
+        </div>
+
+        <button id="BoutonAjoutRessource" onclick="RedirectionURL('{% url 'ajout_ressource' %}')">Ajout Ressource</button>
+        <br>
+        <button id="BoutonGestion" onclick="RedirectionURL('{% url 'gestion' %}')">Menu Gestion</button>
+        <br>
+        <button id="BoutonProfil" onclick="RedirectionURL('{% url 'profil' %}')">Profil</button>
+
+    </div>
+
+</body>
+
+</html>
